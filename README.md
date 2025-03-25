@@ -1,11 +1,11 @@
 # IA-Labirinto-Novo  
 
-Repositório do trabalho da disciplina de **Inteligência Artificial (IA)**, contendo uma apresentação sobre métodos de busca e um código em **Java** para resolver um problema de busca em labirinto, conforme solicitado pelo professor **Jomi Hübner**.  
+Repositório do trabalho da disciplina de **Inteligência Artificial (IA)**, contendo uma apresentação sobre métodos de busca e um código em **Java** para resolver um problema de busca em labirinto, conforme o pacote do professor **Jomi Hübner**.  
 
 ## 📌 Descrição  
-Este projeto tem como objetivo implementar e comparar diferentes métodos de busca em um **labirinto NxN**, que contém **M obstáculos, duas entradas e uma saída**. Cada entrada utiliza um método de busca diferente, e os resultados são comparados.  
+Este projeto tem como objetivo implementar e comparar dois diferentes métodos de busca (Largura e Profundidade) em um **labirinto NxN**, que contém **M obstáculos, duas entradas e uma saída**. Cada entrada utiliza um método de busca diferente, e os resultados são comparados.
 
-A implementação foi baseada em um código pré-existente, que foi modificado para atender às novas exigências do professor.  
+A implementação foi baseada em um código pré-existente, que foi modificado para atender às novas exigências do professor Alexandre Zamberlan.  
 
 ## 📚 Estrutura do Repositório  
 
