@@ -13,18 +13,6 @@ import busca.Nodo;
 import javax.swing.JOptionPane;
 
 public class LabirintoNovo implements Estado, Heuristica {
-    
-    @Override
-    public String getDescricao() {
-        return "O jogo do labirinto é uma matriz NxM, com duas entradas (E¹ e E²) e uma saída (S):\n"
-                + "\n"
-                + "peças que representam os portais de entrada no labirinto;\n"
-                + "peça que representa o portal de saída no labirinto.\n"
-                + "As Entradas são os portais em que os personagens iniciam no "
-                + "labirinto e precisam se movimentar até a Saída. "
-                + "O foco aqui, é chegar na Saída pelo menor número de movimentos (células). "
-                + "Entretanto, não pode ser nas diagonais.";
-    }
 
     final char matriz[][]; 
     int linhaEntrada1, colunaEntrada1; 
@@ -260,8 +248,6 @@ public class LabirintoNovo implements Estado, Heuristica {
     @Override
     public String toString() {
         final String RESET = "\u001B[0m";
-        final String AZUL = "\u001B[34m";
-        final String VERDE = "\u001B[32m";
         
         StringBuffer resultado = new StringBuffer();
         for (int i = 0; i < matriz.length; i++) {
@@ -269,13 +255,13 @@ public class LabirintoNovo implements Estado, Heuristica {
                 char c = this.matriz[i][j];
                 switch (c) {
                     case '¹':
-                        resultado.append(VERDE).append("E¹").append(RESET);
+                        resultado.append(RESET).append("E¹").append(RESET);
                         break;
                     case '²':
-                        resultado.append(VERDE).append("E²").append(RESET);
+                        resultado.append(RESET).append("E²").append(RESET);
                         break;
                     case 'S':
-                        resultado.append(AZUL).append("S").append(RESET).append(" ");
+                        resultado.append(RESET).append("S").append(RESET).append(" ");
                         break;
                     default:
                         resultado.append(c).append(" ");
@@ -346,11 +332,11 @@ public class LabirintoNovo implements Estado, Heuristica {
             
             String maisEficiente;
             if (resultadoProfundidade[0] == null && resultadoLargura[0] == null) {
-                maisEficiente = "Nenhuma busca encontrou solução.";
+                maisEficiente = "Nenhum dos dois conseguiu achar solução!";
             } else if (resultadoProfundidade[0] == null) {
-                maisEficiente = "Largura foi mais eficiente (Profundidade não encontrou solução).";
+                maisEficiente = "Apenas largura achou solução!";
             } else if (resultadoLargura[0] == null) {
-                maisEficiente = "Profundidade foi mais eficiente (Largura não encontrou solução).";
+                maisEficiente = "Apenas profundidade achou solução!";
             } else {
                 if (tempoProfundidade[0] < tempoLargura[0]) {
                     maisEficiente = "Busca por profundidade foi mais rápida.";
