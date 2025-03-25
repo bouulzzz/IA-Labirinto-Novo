@@ -9,7 +9,7 @@ A implementação foi baseada em um código pré-existente, que foi modificado p
 
 ## 📚 Estrutura do Repositório  
 
-- **📁 src/** → Código-fonte em **Java**  
+- **📁 LabirintoNovo.java/** → Código-fonte em **Java**  
 - **📁 slides/** → Apresentação em **PDF** sobre métodos de busca  
 - **📄 README.md** → Este arquivo  
 
