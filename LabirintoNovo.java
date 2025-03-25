@@ -47,7 +47,7 @@ public class LabirintoNovo implements Estado, Heuristica {
         this.op = o;
         
         int quantidadeObstaculos = (dimensao*dimensao)* porcentagemObstaculos/100;
-        System.out.println("Quantidade de obstáculos: " + quantidadeObstaculos);
+        System.out.println("Quantidade de obstaculos: " + quantidadeObstaculos);
         
         Random gerador = new Random();
 
@@ -270,9 +270,9 @@ public class LabirintoNovo implements Estado, Heuristica {
             }
             resultado.append("\n");
         }
-        resultado.append("\nPosição Entrada E¹: (").append(linhaEntrada1).append(",").append(colunaEntrada1).append(")");
-        resultado.append("\nPosição Entrada E²: (").append(linhaEntrada2).append(",").append(colunaEntrada2).append(")");
-        resultado.append("\nPosição Saída S: (").append(linhaSaida).append(",").append(colunaSaida).append(")\n");
+        resultado.append("\nPosicao Entrada E¹: (").append(linhaEntrada1).append(",").append(colunaEntrada1).append(")");
+        resultado.append("\nPosicao Entrada E²: (").append(linhaEntrada2).append(",").append(colunaEntrada2).append(")");
+        resultado.append("\nPosicao Saida S: (").append(linhaSaida).append(",").append(colunaSaida).append(")\n");
         return "\n" + op + "\n" + resultado.toString();
     }
     public static void main(String[] a) {
@@ -280,8 +280,8 @@ public class LabirintoNovo implements Estado, Heuristica {
         int porcentagemObstaculos;
         
         try {
-            dimensao = Integer.parseInt(JOptionPane.showInputDialog(null,"Entre com a dimensão do Puzzle!"));
-            porcentagemObstaculos = Integer.parseInt(JOptionPane.showInputDialog(null,"Porcentagem de obstáculos!"));
+            dimensao = Integer.parseInt(JOptionPane.showInputDialog(null,"Entre com a dimensao do Puzzle!"));
+            porcentagemObstaculos = Integer.parseInt(JOptionPane.showInputDialog(null,"Porcentagem de obstaculos!"));
             final LabirintoNovo estadoInicial = new LabirintoNovo(dimensao, "estado inicial", porcentagemObstaculos);
             
             System.out.println("Estado Inicial:");
@@ -296,27 +296,27 @@ public class LabirintoNovo implements Estado, Heuristica {
             
             executor.execute(() -> {
                 long inicio = System.currentTimeMillis();
-                System.out.println("\nIniciando busca em PROFUNDIDADE");
+                System.out.println("\nIniciando busca em Profundidade");
                 resultadoProfundidade[0] = new BuscaProfundidade(new MostraStatusConsole()).busca(estadoInicial);
                 tempoProfundidade[0] = System.currentTimeMillis() - inicio;
                 
                 if (resultadoProfundidade[0] == null) {
-                    System.out.println("Busca em profundidade: sem solução!");
+                    System.out.println("Busca em profundidade: sem solucao!");
                 } else {
-                    System.out.println("Solução por profundidade:\n" + resultadoProfundidade[0].montaCaminho() + "\n\n");
+                    System.out.println("Solucao por profundidade:\n" + resultadoProfundidade[0].montaCaminho() + "\n\n");
                 }
             });
             
             executor.execute(() -> {
                 long inicio = System.currentTimeMillis();
-                System.out.println("\nIniciando busca em LARGURA");
+                System.out.println("\nIniciando busca em Largura");
                 resultadoLargura[0] = new BuscaLargura(new MostraStatusConsole()).busca(estadoInicial);
                 tempoLargura[0] = System.currentTimeMillis() - inicio;
                 
                 if (resultadoLargura[0] == null) {
-                    System.out.println("Busca em largura: sem solução!");
+                    System.out.println("Busca em largura: sem solucao!");
                 } else {
-                    System.out.println("Solução por largura:\n" + resultadoLargura[0].montaCaminho() + "\n\n");
+                    System.out.println("Solucao por largura:\n" + resultadoLargura[0].montaCaminho() + "\n\n");
                 }
             });
             
@@ -332,22 +332,22 @@ public class LabirintoNovo implements Estado, Heuristica {
             
             String maisEficiente;
             if (resultadoProfundidade[0] == null && resultadoLargura[0] == null) {
-                maisEficiente = "Nenhum dos dois conseguiu achar solução!";
+                maisEficiente = "Nenhum dos dois conseguiu achar solucao!";
             } else if (resultadoProfundidade[0] == null) {
-                maisEficiente = "Apenas largura achou solução!";
+                maisEficiente = "Apenas largura achou solucao!";
             } else if (resultadoLargura[0] == null) {
-                maisEficiente = "Apenas profundidade achou solução!";
+                maisEficiente = "Apenas profundidade achou solucao!";
             } else {
                 if (tempoProfundidade[0] < tempoLargura[0]) {
-                    maisEficiente = "Busca por profundidade foi mais rápida.";
+                    maisEficiente = "Busca por profundidade foi mais rapida.";
                 } else if (tempoLargura[0] < tempoProfundidade[0]) {
-                    maisEficiente = "Busca por largura foi mais rápida.";
+                    maisEficiente = "Busca por largura foi mais rapida.";
                 } else {
-                    maisEficiente = "Ambas tiveram o mesmo tempo de execução.";
+                    maisEficiente = "Ambas tiveram o mesmo tempo de execucao.";
                 }
             }
             
-            System.out.println("\nConclusão: " + maisEficiente);
+            System.out.println("\nConclusao: " + maisEficiente);
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
